@@ -1,7 +1,6 @@
 SocialQuiz::Application.routes.draw do
-  get "pages/home"
-  get "pages/about"
-  get "pages/help"
+  root to: 'pages#home'
 
- 
+  match '/about',   to: 'pages#about'
+  match '/help',    to: 'pages#help'
 end

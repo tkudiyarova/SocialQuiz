@@ -1,46 +1,28 @@
 require 'spec_helper'
 
 describe "Pages" do
+  subject { page }
 
   describe "Home page" do
+    before { visit root_path }
 
-    it "should have the h1 'Home page'" do
-      visit '/pages/home'
-      page.should have_selector('h1', :text => 'Home page')
-    end
-
-    it "should have the title 'Home'" do
-      visit '/pages/home'
-      page.should have_selector('title',
-                        :text => "SocialQuiz | Home")
-    end
+    it { should have_selector('h2',    text: 'Welcome') }
+    it { should have_selector('title', text: full_title('')) }
+    it { should_not have_selector 'title', text: '| Home' }
   end
 
   describe "Help page" do
+    before { visit help_path }
 
-    it "should have the h1 'Help'" do
-      visit '/pages/help'
-      page.should have_selector('h1', :text => 'Help')
-    end
-
-    it "should have the title 'Help'" do
-      visit '/pages/help'
-      page.should have_selector('title',
-                        :text => "SocialQuiz | Help")
-    end
+    it { should have_selector('h1',    text: 'Help') }
+    it { should have_selector('title', text: full_title('Help')) }
   end
 
   describe "About page" do
+    before { visit about_path }
 
-    it "should have the h1 'About Us'" do
-      visit '/pages/about'
-      page.should have_selector('h1', :text => 'About Us')
-    end
-
-    it "should have the title 'About Us'" do
-      visit '/pages/about'
-      page.should have_selector('title',
-                    :text => "SocialQuiz | About Us")
-    end
+    it { should have_selector('h1',    text: 'About') }
+    it { should have_selector('title', text: full_title('About')) }
   end
+
 end
