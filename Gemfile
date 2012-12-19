@@ -2,11 +2,20 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.9'
 gem 'bootstrap-sass'
+gem 'bcrypt-ruby', '3.0.1'
 gem 'thin'
 
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.11.0'
+end
+
+group :development do
+	gem 'annotate', '2.5.0'
+end
+
+group :test do
+	gem 'capybara', '1.1.2'
 end
 
 group :assets do
@@ -17,9 +26,7 @@ end
 
 gem 'jquery-rails', '2.0.2'
 
-group :test do
-	gem 'capybara', '1.1.2'
-end
+
 gem 'therubyracer', '>=0.8.2'
 
 group :production do
