@@ -5,6 +5,9 @@ gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
 gem 'thin'
 
+gem 'activeadmin'
+gem "meta_search", '>= 1.1.0.pre'
+
 group :development, :test do
 	gem 'sqlite3', '1.3.5'
 	gem 'rspec-rails', '2.11.0'
