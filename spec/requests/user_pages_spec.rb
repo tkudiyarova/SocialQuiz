@@ -34,10 +34,10 @@ describe "User pages" do
 
     describe "with valid information" do
       before do
-        fill_in 'user[name]',         with: "Michael Hartl"
-        fill_in 'user[email]',        with: "mhartl@example.com"
-        fill_in 'user[password]',     with: "foobar"
-        fill_in 'user[password_confirmation]', with: "foobar"
+        fill_in 'user[name]',                   with: "Michael Hartl"
+        fill_in 'user[email]',                  with: "mhartl@example.com"
+        fill_in 'user[password]',               with: "foobar"
+        fill_in 'user[password_confirmation]',  with: "foobar"
       end
 
       describe "after saving the user" do
@@ -46,6 +46,7 @@ describe "User pages" do
 
         it { should have_selector('title', text: user.name) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+        it { should have_link('Sign out') }
       end
 
       it "should create a user" do

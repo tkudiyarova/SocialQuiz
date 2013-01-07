@@ -1,2 +1,19 @@
-<% provide(:title, "Sign in") %>
-<h1>Sign in</h1>
+<% provide(:title, 'Sign in') %>
+
+<div class="container">
+  	<div class="center form">
+  		<h2 class="form-heading"> Please sign in </h2>
+
+    	<%= form_for(:session, url: sessions_path) do |f| %>
+
+      	<%= f.text_field :email, :placeholder => "e-mail" %>
+      	<%= f.password_field :password, :placeholder => "password" %>
+
+      	<%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    	<% end %>
+
+    	<p>New user? <%= link_to "Sign up now!", signup_path %></p>
+	</div>
+</div>
+
+
