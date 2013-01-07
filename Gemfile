@@ -6,7 +6,7 @@ gem 'bcrypt-ruby'
 gem 'thin'
 
 gem 'activeadmin'
-gem 'sass-rails',   '3.2.5'
+
 gem "meta_search", '>= 1.1.0.pre'
 
 group :development, :test do
@@ -26,6 +26,7 @@ end
 group :assets do
   gem 'coffee-rails', '3.2.2'
   gem 'uglifier', '1.2.3'
+  gem 'sass-rails', '3.2.5'
 end
 
 gem 'jquery-rails', '2.0.2'
