@@ -34,15 +34,15 @@ describe "User pages" do
 
     describe "with valid information" do
       before do
-        fill_in 'user[name]',                   with: "Michael Hartl"
-        fill_in 'user[email]',                  with: "mhartl@example.com"
-        fill_in 'user[password]',               with: "foobar"
-        fill_in 'user[password_confirmation]',  with: "foobar"
+        fill_in 'user[name]',                   with: "tanya"
+        fill_in 'user[email]',                  with: "tanya@gmail.com"
+        fill_in 'user[password]',               with: "1234567890"
+        fill_in 'user[password_confirmation]',  with: "1234567890"
       end
 
       describe "after saving the user" do
         before { click_button submit }
-        let(:user) { User.find_by_email('mhartl@example.com') }
+        let(:user) { User.find_by_email('tanya@gmail.com') }
 
         it { should have_selector('title', text: user.name) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }
@@ -53,8 +53,23 @@ describe "User pages" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
     end
-
   end
 
+  describe "edit" do
+    let(:user) { FactoryGirl.create(:user) }
+    before { visit edit_user_path(user) }
+
+    describe "page" do
+      it { should have_selector('h2',    text: "Update your profile") }
+      it { should have_selector('title', text: "Edit user") }
+      it { should have_link('change', href: 'http://gravatar.com/emails') }
+    end
+
+    describe "with invalid information" do
+      before { click_button "Save changes" }
+
+      it { should have_content('error') }
+    end
+  end
 
 end
