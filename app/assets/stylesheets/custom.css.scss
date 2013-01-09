@@ -1,151 +1,70 @@
 @import "bootstrap";
 @import "bootstrap-responsive";
 
-/* universal */
-
-html {
-  overflow-y: scroll;
-  font-size: 100%;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
+/* Body and structure
+-------------------------------------------------- */
+body {
+  position: relative;
+  padding-top: 40px;
 }
 
-section {
-  overflow: auto;
-}
-
-textarea {
-  resize: vertical;
-}
-/* mixins, variables, etc. */
-
-$grayMediumLight: #eaeaea;
-
-@mixin box_sizing {
-  -moz-box-sizing: border-box; 
-  -webkit-box-sizing: border-box; 
-  box-sizing: border-box;
-}
-
-/* miscellaneous */
-
-.debug_dump {
-  clear: both;
-  float: left;
-  width: 100%;
-  margin-top: 45px;
-  @include box_sizing;
-}
 .center {
   text-align: center;
 }
 
-.center h1 {
-  margin-bottom: 10px;
-}
-
 .hero-unit {
   padding: 10px;
-  margin-bottom: 10px;
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
-  color: inherit;
-  background-color: #eeeeee;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  /*margin-bottom: 30px;*/
 }
 
-.btn {
-  border-color: #c5c5c5;
-  border-color: rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.15) rgba(0, 0, 0, 0.25);
-}
-
-.btn-primary {
-  color: #ffffff;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-color: #006dcc;
-  *background-color: #0044cc;
-  background-image: -moz-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0088cc), to(#0044cc));
-  background-image: -webkit-linear-gradient(top, #0088cc, #0044cc);
-  background-image: -o-linear-gradient(top, #0088cc, #0044cc);
-  background-image: linear-gradient(to bottom, #0088cc, #0044cc);
-  background-repeat: repeat-x;
-  border-color: #0044cc #0044cc #002a80;
-  border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff0088cc', endColorstr='#ff0044cc', GradientType=0);
-  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-}
-
-.btn-large {
-  padding: 11px 19px;
-  font-size: 17.5px;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+.hero-unit h2 {
+  margin: 0;
 }
 
 img {
-  margin: 20px;
-  width: auto\9;
-  height: auto;
-  max-width: 100%;
-  vertical-align: middle;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
+  margin: 20px 0;
 }
 
-
-/* footer */
-
-footer {
-	margin: 5px 5px;
-	padding-top: 5px;
-	border-top: 1px solid #eaeaea;
-	color: #999;
-}
-
-footer small {
+.gravatar {
   float: left;
+  margin-right: 40px;
 }
 
-footer ul {
-  float: right;
-  list-style: none;
+/* Responsive
+-------------------------------------------------- */
+/* Large desktop
+------------------------- */
+/*@media (min-width: 1200px){}*/
+
+/* Tablet to desktop
+------------------------- */
+@media (min-width: 768px) and (max-width: 979px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
 }
 
-footer ul li {
-  float: left;
-  margin-left: 10px;
+/* Tablet
+------------------------- */
+@media (max-width: 767px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
 }
 
-/* typography */
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: inherit;
-  font-weight: bold;
-  line-height: 20px;
-  color: inherit;
-  text-rendering: optimizelegibility;
-  text-align: center;
+/* Landscape phones
+------------------------- */
+@media (max-width: 480px) {
+  /* Remove any padding from the body */
+  body {
+    padding-top: 0;
+  }
 }
 
-h1 {
-  font-size: 38.5px;
-}
-
-h2 {
-  font-size: 31.5px;
-}
-
-p {
-  font-size: 1.1em;
-  line-height: 1.7em;
-}
-
-/* header */
+/* header 
+--------------------------------------------------- */
 
 #logo {
   float: left;
@@ -164,42 +83,13 @@ p {
   text-decoration: none;
 }
 
-/* sidebar */
-
-aside {
-  section {
-    padding: 10px 0;
-    border-top: 1px solid $grayLighter;
-    &:first-child {
-      border: 0;
-      padding-top: 0;
-    }
-    span {
-      display: block;
-      margin-bottom: 3px;
-      line-height: 1;
-    }
-    h1 {
-      font-size: 1.4em;
-      text-align: left;
-      letter-spacing: -1px;
-      margin-bottom: 3px;
-      margin-top: 0px;
-    }
-  }
-}
-
-.gravatar {
-  float: left;
-  margin-right: 10px;
-}
-
-/* form */
+/* form 
+--------------------------------------------------- */
 
 .form{
-  width: 300px;
+  width: 250px;
   padding: 19px 29px;
-  margin: 40px auto 20px;
+  margin: 40px auto;
   background-color: #fff;
   border: 2px solid #e5e5e5;
   -webkit-border-radius: 5px;
@@ -208,15 +98,11 @@ aside {
   -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
-}
 
-.form, 
-.form-heading {
-  margin-bottom: 10px;
 }
 
 .form h2{
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .form input {
@@ -227,7 +113,40 @@ aside {
   width: 200 px;
 }
 
-/* error_explanation */
+.form .btn {
+  margin: 20px 0 0;
+}
+
+.form p {
+  margin: 0;
+}
+/* footer 
+------------------------------------------------- */
+$grayMediumLight: #eaeaea;
+
+footer {
+  margin: 5px 5px;
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: #999;
+}
+
+footer small {
+  float: left;
+}
+
+footer ul {
+  float: right;
+  list-style: none;
+}
+
+footer ul li {
+  float: left;
+  margin-left: 10px;
+}
+
+/* error_explanation 
+------------------------------------------------ */
 
 #error_explanation {
   color: #f00;
@@ -241,4 +160,22 @@ aside {
   @extend .control-group;
   @extend .error;
  }
+
+@mixin box_sizing {
+  -moz-box-sizing: border-box; 
+  -webkit-box-sizing: border-box; 
+  box-sizing: border-box;
+}
+
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
+}
+
+
+
+
 
