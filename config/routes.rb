@@ -5,6 +5,7 @@ SocialQuiz::Application.routes.draw do
 
   resources :users, only: [:show, :new, :create, :edit, :update]
   resources :sessions, only: [:new, :create, :destroy]
+  resources :questions, only: [:create, :destroy]
 
   root to: 'pages#home'
 

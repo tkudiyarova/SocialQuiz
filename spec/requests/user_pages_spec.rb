@@ -5,11 +5,20 @@ describe "User pages" do
   subject { page }
 
   describe "profile page" do
-    let(:user) { FactoryGirl.create(:user) }
+    let(:user)  { FactoryGirl.create(:user) }
+    let!(:q1)   { FactoryGirl.create(:question, user: user, title: "How old are you?") }
+    let!(:q2)   { FactoryGirl.create(:question, user: user, title: "Where are you from?") }
+
     before { visit user_path(user) }
 
     it { should have_selector('h1',    text: user.name) }
     it { should have_selector('title', text: user.name) }
+
+    describe "questions" do
+      it { should have_content(q1.title) }
+      it { should have_content(q2.title) }
+      it { should have_content(user.questions.count) }
+    end
   end
 
   describe "signup page" do
@@ -35,14 +44,14 @@ describe "User pages" do
     describe "with valid information" do
       before do
         fill_in 'user[name]',                   with: "tanya"
-        fill_in 'user[email]',                  with: "tanya@gmail.com"
+        fill_in 'user[email]',                  with: "tanya1@gmail.com"
         fill_in 'user[password]',               with: "1234567890"
         fill_in 'user[password_confirmation]',  with: "1234567890"
       end
 
       describe "after saving the user" do
         before { click_button submit }
-        let(:user) { User.find_by_email('tanya@gmail.com') }
+        let(:user) { User.find_by_email('tanya1@gmail.com') }
 
         it { should have_selector('title', text: user.name) }
         it { should have_selector('div.alert.alert-success', text: 'Welcome') }

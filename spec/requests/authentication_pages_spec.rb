@@ -49,10 +49,10 @@ describe "Authentication" do
         it { should_not have_selector('title', text: full_title('Sign up')) }
       end
 
-      #describe "submitting a POST request to the Users#create action" do
-        #before { put users_path }
-        #specify { response.should redirect_to(root_path) }
-      #end
+      describe "submitting a POST request to the Users#create action" do
+        before { put signup_path }
+        specify { response.should redirect_to(root_path) }
+      end
     end
     
     describe "for non-signed-in users" do
@@ -61,10 +61,7 @@ describe "Authentication" do
       describe "when attempting to visit a protected page" do
         before do
           visit edit_user_path(user)
-          #puts page.html
-          #fill_in 'session[email]',    with: user.email
-          #fill_in 'session[password]', with: user.password
-          #click_button "Sign in"
+          #support/utilities.rb
           sign_in user
         end
 
@@ -96,6 +93,19 @@ describe "Authentication" do
 
         describe "submitting to the update action" do
           before { put user_path(user) }
+          specify { response.should redirect_to(signin_path) }
+        end
+      end
+
+      describe "in the Questions controller" do
+
+        describe "submitting to the create action" do
+          before { post questions_path }
+          specify { response.should redirect_to(signin_path) }
+        end
+
+        describe "submitting to the destroy action" do
+          before { delete question_path(FactoryGirl.create(:question)) }
           specify { response.should redirect_to(signin_path) }
         end
       end
