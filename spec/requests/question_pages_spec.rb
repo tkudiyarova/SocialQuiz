@@ -30,5 +30,17 @@ describe "Question pages" do
       end
     end
   end
+
+  describe "question destruction" do
+    before { FactoryGirl.create(:question, user: user) }
+
+    describe "as correct user" do
+      before { visit user_path(user) }
+
+      it "should delete a question" do
+        expect { click_link "delete" }.to change( Question, :count).by(-1)
+      end
+    end
+  end
 end
 
