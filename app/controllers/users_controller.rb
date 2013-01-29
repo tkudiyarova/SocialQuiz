@@ -36,8 +36,6 @@ class UsersController < ApplicationController
     end
   end
 
-  
-
   def new_user
     if signed_in?
       redirect_to(root_path)

@@ -8,16 +8,16 @@ describe "Question pages" do
   before { sign_in user }
 
   describe "question creation" do
-    before { visit root_path }
+    before { visit new_question_path }
 
     describe "with invalid information" do
 
       it "should not create a question" do
-        expect { click_button "Add question" }.not_to change(Question, :count)
+        expect { click_button "Submit" }.not_to change(Question, :count)
       end
 
       describe "error messages" do
-        before { click_button "Add question" }
+        before { click_button "Submit" }
         it { should have_content('error') } 
       end
     end
@@ -26,7 +26,7 @@ describe "Question pages" do
 
       before { fill_in 'question[title]', with: "Lorem ipsum" }
       it "should create a question" do
-        expect { click_button "Add question" }.to change(Question, :count).by(1)
+        expect { click_button "Submit" }.to change(Question, :count).by(1)
       end
     end
   end
