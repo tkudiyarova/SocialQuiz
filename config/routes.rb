@@ -3,7 +3,7 @@ SocialQuiz::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :users, only: [:show, :new, :create, :edit, :update]
+  resources :users, only: [:show, :new, :create, :edit, :update, :check_email]
   resources :sessions, only: [:new, :create, :destroy]
   resources :questions, only: [:new, :create, :destroy, :show]
 
@@ -14,4 +14,5 @@ SocialQuiz::Application.routes.draw do
   match '/signin', 	     to: 'sessions#new'
   match '/signout',	     to: 'sessions#destroy', via: :delete
   match '/new_question', to: 'questions#new'
+
 end

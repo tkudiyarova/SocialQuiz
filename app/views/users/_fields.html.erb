@@ -1,6 +1,5 @@
 <%= render 'shared/error_messages', object: f.object %>
-
-<%= f.text_field :name, :placeholder => "name" %>
+<%= f.text_field :name, :placeholder => "name", :class => "required" %>
 <%= f.text_field :email, :placeholder => "e-mail" %>
 <%= f.password_field :password, :placeholder => "password" %>
 <%= f.password_field :password_confirmation, :placeholder => "password confirmation" %>

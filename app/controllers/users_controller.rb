@@ -46,4 +46,11 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     redirect_to(root_path) unless current_user?(@user)
   end
+
+  def check_email
+    @user = User.find_by_email(params[:user][:eamil])
+    respond_to do |format|
+      format.json { render :json => !@user }
+    end
+  end
 end
